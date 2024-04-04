@@ -3,15 +3,23 @@ import pandas as pd
 import numpy as np
 
 
-st.image('login_right_img.png', caption='Sunrise by the mountains')
-st.sidebar.header('Qnaboat', divider='rainbow')
-st.sidebar.title(':blue[login]')
+# st.image('login_right_img.png', caption='Sunrise by the mountains')
+st.subheader('Qnaboat', divider='rainbow')
+st.title(':blue[login]')
 
-email = st.sidebar.text_input('Email', 'enter your email')
+col1, col2 = st.columns([0.7, 0.3])
+with col1:
 
-password = st.sidebar.text_input('Password', 'enter correct password')
+    email = st.text_input('Email',placeholder="enter your email")
 
-st.sidebar.button("login", type="primary")
+    password = st.text_input('Password',placeholder="enter correct password")
 
-st.sidebar.markdown("[forgot password ?](#section-1)")
-st.sidebar.markdown("[register for new user ?](#section-1)")
+def values():
+    if email and password:
+        st.write('email : ', email)
+        st.write('password : ', password)
+st.button("login", type="primary",on_click=values())
+st.markdown("[forgot password ?](#section-1)")
+st.markdown("[register for new user ?](#section-1)")
+
+
